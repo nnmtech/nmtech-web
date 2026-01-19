@@ -1,0 +1,30 @@
+[build]
+  publish = "dist"
+  functions = "functions"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Replace the script/style hashes with output from `npm run compute-sri`.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha384-ZJwgqZBwiZkva/56OeJk7CzZAiVA5VMuFS3O2IG6BoP+Pu+AUtexhtq5eLa5PSel'; style-src 'self' 'sha384-23Y7sxsN187LR+Ltgt4rv86wEtCoHlxTzD1LgqEC4jyeK68ofBprNBPVQ2xXcEsa'; img-src 'self' data: https://cdn.nmtechmsp.com https:; form-action 'self' https://docs.google.com https://script.google.com; base-uri 'self'; object-src 'none'; frame-ancestors 'none';"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=()"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

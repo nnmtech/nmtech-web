@@ -1,0 +1,19 @@
+{
+  "name": "nmtech-web",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "test": "node tests/test_prospects.js",
+    "compute-sri": "node scripts/compute_sri.js",
+    "build": "echo \"Run your build tool to produce dist/ (css/js) then run npm run compute-sri\"",
+    "deploy": "netlify deploy --prod --dir=dist"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.19.0",
+    "node-fetch": "^2.6.7",
+    "@sendgrid/mail": "^8.1.6"
+  }
+}
