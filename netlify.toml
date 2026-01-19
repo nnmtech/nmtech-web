@@ -1,0 +1,8 @@
+[build]
+  # Publish site from repository root (no build step)
+  publish = "."
+  command = ""
+
+[dev]
+  # Local dev server settings optional
+  port = 8888
