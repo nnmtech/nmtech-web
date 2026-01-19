@@ -26,7 +26,8 @@ for v in "${vars[@]}"; do
     continue
   fi
   echo "Setting $v on Netlify site $NETLIFY_SITE_ID"
-  netlify env:set "$v" "$val" --site "$NETLIFY_SITE_ID"
+  # Use short flag -s for site id for compatibility with netlify CLI versions
+  netlify env:set "$v" "$val" -s "$NETLIFY_SITE_ID"
 done
 
 echo "Done. Trigger a deploy in Netlify dashboard or push a commit to deploy." 
